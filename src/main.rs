@@ -11,7 +11,7 @@ async fn make_request_info(url: String) {
             let content = response.text().await;
             match content {
                 Ok(text) => {
-                    print!("{text}");
+                    let stock_data = api::parser::bond::BondsInfo::new(&text);
                 },
                 Err(error) => {
                     println!("Could not response context")
@@ -19,7 +19,7 @@ async fn make_request_info(url: String) {
             }
         },
         Err(error) => {
-            println!("HTTP GEt request failed");
+            println!("HTTP Get request failed");
         }
     }
 }
@@ -28,16 +28,10 @@ async fn make_request_info(url: String) {
 async fn main() {
     
     let tickerName = String::from("SBER");
-    let startDate = String::from("2022-09-01");
-    let endDate = String::from("2023-01-31");
+    let startDate = String::from("2022-01-01");
+    let endDate = String::from("2022-01-31");
 
     make_request_info(
-        api::stocks::url_request_builder::for_now(tickerName)
+        api::bonds::url_request_builder::list_of_bonds()
     ).await;
-
-    // for i  in 0..3 {
-    //     make_request_info(
-    //         api::bonds::url_request_builder::for_now(tickerName.clone())
-    //     ).await;
-    // }
 }
