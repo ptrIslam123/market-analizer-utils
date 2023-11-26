@@ -178,267 +178,446 @@ pub mod http {
 
             pub mod bond {
                 pub struct BondsInfo {
-                    securities: Vec<SecuritiesData>,
-                    market_data: Vec<MarketData>,
-                    market_data_yields: Vec<MarketDataYields>,
+                    pub securities: Vec<SecuritiesData>,
+                    pub market_data: Vec<MarketData>,
+                    pub market_data_yields: Vec<MarketDataYields>,
                 }
 
                 #[derive(serde::Deserialize, Debug)]
-                struct SecuritiesData {
+                pub struct SecuritiesData {
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECID")]
-                    sec_id: Option<String>,
+                    pub sec_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BOARDID")]
-                    board_id: Option<String>,
+                    pub board_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SHORTNAME")]
-                    shortn_ame: Option<String>,
+                    pub short_name: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PREVWAPRICE")]
-                    prev_wa_price: Option<f64>,
+                    pub prev_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDATPREVWAPRICE")]
-                    yieldat_prev_wa_price: Option<f64>,
+                    pub yieldat_prev_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "COUPONVALUE")]
-                    coupon_value: Option<f64>,
+                    pub coupon_value: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "NEXTCOUPON")]
-                    next_coupon: Option<String>,
+                    pub next_coupon: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ACCRUEDINT")]
-                    accruedint: Option<f64>,
+                    pub accruedint: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PREVPRICE")]
-                    prev_price: Option<f64>,
+                    pub prev_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LOTSIZE")]
-                    lot_size: Option<i64>,
+                    pub lot_size: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "FACEVALUE")]
-                    face_value: Option<f64>,
+                    pub face_value: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BOARDNAME")]
-                    board_name: Option<String>,
+                    pub board_name: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "STATUS")]
-                    status: Option<String>,
+                    pub status: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MATDATE")]
-                    mat_date: Option<String>,
+                    pub mat_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "DECIMALS")]
-                    decimals: Option<i64>,
+                    pub decimals: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "COUPONPERIOD")]
-                    coupon_period: Option<i64>,
+                    pub coupon_period: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ISSUESIZE")]
-                    issue_size: Option<i64>,
+                    pub issue_size: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PREVLEGALCLOSEPRICE")]
-                    prev_legal_close_price: Option<f64>,
+                    pub prev_legal_close_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PREVDATE")]
-                    prev_date: Option<String>,
+                    pub prev_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECNAME")]
-                    sec_name: Option<String>,
+                    pub sec_name: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "REMARKS")]
-                    remarks: Option<String>,
+                    pub remarks: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MARKETCODE")]
-                    market_code: Option<String>,
+                    pub market_code: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "INSTRID")]
-                    instr_id: Option<String>,
+                    pub instr_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECTORID")]
-                    sector_id: Option<String>,
+                    pub sector_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MINSTEP")]
-                    min_step: Option<f64>,
+                    pub min_step: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "FACEUNIT")]
-                    face_unit: Option<String>,
+                    pub face_unit: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BUYBACKPRICE")]
-                    buyback_price: Option<f64>,
+                    pub buyback_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BUYBACKDATE")]
-                    buyback_date: Option<String>,
+                    pub buyback_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ISIN")]
-                    isin: Option<String>,
+                    pub isin: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LATNAME")]
-                    lat_name: Option<String>,
+                    pub lat_name: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "REGNUMBER")]
-                    reg_number: Option<String>,
+                    pub reg_number: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CURRENCYID")]
-                    currency_id: Option<String>,
+                    pub currency_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ISSUESIZEPLACED")]
-                    issue_size_placed: Option<i64>,
+                    pub issue_size_placed: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LISTLEVEL")]
-                    list_level: Option<i64>,
+                    pub list_level: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECTYPE")]
-                    sec_type: Option<String>,
+                    pub sec_type: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECTORID")]
-                    couponpercent: Option<f64>,
+                    pub coupon_percent: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OFFERDATE")]
-                    offerdate: Option<String>,
+                    pub offer_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SETTLEDATE")]
-                    settle_date: Option<String>,
+                    pub settle_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LOTVALUE")]
-                    lot_value: Option<f64>,
+                    pub lot_value: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "FACEVALUEONSETTLEDATE")]
-                    face_value_on_settle_date: Option<f64>,
+                    pub face_value_on_settle_date: Option<f64>,
+                }
+
+                impl SecuritiesData {
+
+                    pub fn sec_id(&self) -> String {
+                        self.sec_id.clone().unwrap()
+                    }
+
+                    /**
+                     * @brief Название облигаций.
+                     */
+                    pub fn short_name(&self) -> String {
+                        self.short_name.clone().unwrap()
+                    }
+
+                    /**
+                     * @brief Номинальная стоимость облигаций. 
+                     */
+                    pub fn face_value(&self) -> f64 {
+                        self.face_value.unwrap()
+                    }
+
+                    /**
+                     * @brief Номинальная стоимость облигаций. 
+                     */
+                    pub fn nominal_value(&self) -> f64 {
+                        self.face_value()
+                    }
+
+                    /**
+                     * @brief Величина купона. 
+                     */
+                    pub fn coupon_value(&self) -> f64 {
+                        self.coupon_value.unwrap()
+                    }
+
+                    /**
+                     * @brief Номинальный купонный процент — это процентная ставка, определяющая сумму купонного дохода по облигации или другому
+                     * долговому ценному бумагу.Эта ставка рассчитывается как процент от номинальной стоимости облигации и указывается в её условиях выпуска.
+                     * Пример: Если купонная облигация имеет номинал 1000 рублей и купонный процент 5%, то владелец облигации будет получать 50 рублей
+                     * купонного дохода за каждый купонный период (5% от 1000 рублей).
+                     */
+                    pub fn nominal_coupon_percent(&self) -> f64 {
+                        ((self.coupon_value() / self.nominal_value()) * 100.)
+                    }
+
+                    pub fn real_coupon_percent(&self) -> f64 {
+                        ((self.coupon_value() / 923.11) * 100.)
+                    }
+
+                    pub fn frequency_of_payments_per_year(&self) -> i64 {
+                        (365 / self.coupon_period.unwrap())
+                    }
+
+                    /**
+                     * @brief Ближайшая дата погашения(выплаты) купона.
+                     */
+                    pub fn next_coupon_date(&self) -> Option<String> {
+                        self.next_coupon.clone()
+                    }
+
+                    /**
+                     * @brief Величчина накопленного купонного дохода.
+                     */
+                    pub fn accredint(&self) -> f64 {
+                        self.accruedint.unwrap()
+                    }
+
+                    /**
+                     * @brief Дата погашения облигаций.
+                     */
+                    pub fn maturity_date(&self) -> Option<String> {
+                        self.mat_date.clone()
+                    }
+
+                    /**
+                     * @brief Размер лота.
+                     */
+                    pub fn lot_size(&self) -> i64 {
+                        self.lot_size.unwrap()
+                    }
+
+                    /**
+                     * @brief Размер выпуска.
+                     */
+                    pub fn issue_size(&self) -> i64 {
+                        self.issue_size.unwrap()
+                    }
+
                 }
 
                 #[derive(serde::Deserialize, Debug)]
-                struct MarketData {
+                pub struct MarketData {
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECID")]
-                    sec_id: Option<String>,
+                    pub sec_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BID")]
-                    bid: Option<f64>,
+                    pub bid: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BIDDEPTH")]
-                    bid_depth: Option<f64>,
+                    pub bid_depth: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OFFER")]
-                    offer: Option<f64>,
+                    pub offer: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OFFERDEPTH")]
-                    offer_depth: Option<f64>,
+                    pub offer_depth: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SPREAD")]
-                    spread: Option<f64>,
+                    pub spread: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BIDDEPTHT")]
-                    bid_deptht: Option<f64>,
+                    pub bid_deptht: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OFFERDEPTHT")]
-                    offer_deptht: Option<f64>,
+                    pub offer_deptht: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OPEN")]
-                    open: Option<f64>,
+                    pub open: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LOW")]
-                    low: Option<f64>,
+                    pub low: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "HIGH")]
-                    high: Option<f64>,
+                    pub high: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LAST")]
-                    last: Option<f64>,
+                    pub last: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTCHANGE")]
-                    last_change: Option<f64>,
+                    pub last_change: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTCHANGEPRCNT")]
-                    last_change_prcnt: Option<f64>,
+                    pub last_change_prcnt: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "QTY")]
-                    qty: Option<f64>,
+                    pub qty: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VALUE")]
-                    value: Option<f64>,
+                    pub value: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELD")]
-                    yield_value: Option<f64>,
+                    pub yield_value: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VALUE_USD")]
-                    value_usd: Option<f64>,
+                    pub value_usd: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "WAPRICE")]
-                    wa_price: Option<f64>,
+                    pub wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTCNGTOLASTWAPRICE")]
-                    last_cngto_last_wa_price: Option<f64>,
+                    pub last_cngto_last_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "WAPTOPREVWAPRICEPRCNT")]
-                    wa_p_to_prev_wa_price_prcnt: Option<f64>,
+                    pub wa_p_to_prev_wa_price_prcnt: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "WAPTOPREVWAPRICE")]
-                    wa_p_to_prev_wa_price: Option<f64>,
+                    pub wa_p_to_prev_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDATWAPRICE")]
-                    yield_at_wa_price: Option<f64>,
+                    pub yield_at_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDTOPREVYIELD")]
-                    yield_to_prev_yield: Option<f64>,
+                    pub yield_to_prev_yield: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CLOSEYIELD")]
-                    close_yield: Option<f64>,
+                    pub close_yield: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CLOSEPRICE")]
-                    close_price: Option<f64>,
+                    pub close_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MARKETPRICETODAY")]
-                    market_price_to_day: Option<f64>,
+                    pub market_price_to_day: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MARKETPRICE")]
-                    market_price: Option<f64>,
+                    pub market_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTTOPREVPRICE")]
-                    last_to_prev_price: Option<f64>,
+                    pub last_to_prev_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "NUMTRADES")]
-                    num_trades: Option<f64>,
+                    pub num_trades: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VOLTODAY")]
-                    vol_today: Option<f64>,
+                    pub vol_today: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VALTODAY")]
-                    val_today: Option<f64>,
+                    pub val_today: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VALTODAY_USD")]
-                    val_today_usd: Option<f64>,
+                    pub val_today_usd: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BOARDID")]
-                    board_id: Option<String>,
+                    pub board_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "TRADINGSTATUS")]
-                    trading_status: Option<String>,
+                    pub trading_status: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "UPDATETIME")]
-                    update_time: Option<String>,
+                    pub update_time: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "DURATION")]
-                    duration: Option<f64>,
+                    pub duration: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "NUMBIDS")]
-                    num_bids: Option<f64>,
+                    pub num_bids: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "NUMOFFERS")]
-                    num_offers: Option<f64>,
+                    pub num_offers: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CHANGE")]
-                    change: Option<f64>,
+                    pub change: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "TIME")]
-                    time: Option<String>,
+                    pub time: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "HIGHBID")]
-                    highb_id: Option<f64>,
+                    pub highb_id: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LOWOFFER")]
-                    low_offer: Option<f64>,
+                    pub low_offer: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PRICEMINUSPREVWAPRICE")]
-                    price_minus_prev_wa_price: Option<f64>,
+                    pub price_minus_prev_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTBID")]
-                    lastb_id: Option<f64>,
+                    pub lastb_id: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LASTOFFER")]
-                    last_offer: Option<f64>,
+                    pub last_offer: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LCURRENTPRICE")]
-                    l_current_price: Option<f64>,
+                    pub l_current_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "LCLOSEPRICE")]
-                    l_close_price: Option<f64>,
+                    pub l_close_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "MARKETPRICE2")]
-                    market_price2: Option<f64>,
+                    pub market_price2: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "OPENPERIODPRICE")]
-                    open_period_price: Option<f64>,
+                    pub open_period_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SEQNUM")]
-                    seq_num: Option<i64>,
+                    pub seq_num: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SYSTIME")]
-                    systime: Option<String>,
+                    pub systime: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "VALTODAY_RUR")]
-                    val_today_rur: Option<f64>,
+                    pub val_today_rur: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "IRICPICLOSE")]
-                    iricpi_close: Option<f64>,
+                    pub iricpi_close: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BEICLOSE")]
-                    bei_close: Option<f64>,
+                    pub bei_close: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CBRCLOSE")]
-                    cbr_close: Option<f64>,
+                    pub cbr_close: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDTOOFFER")]
-                    yield_to_offer: Option<f64>,
+                    pub yield_to_offer: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDLASTCOUPON")]
-                    yield_last_coupon: Option<f64>,
+                    pub yield_last_coupon: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "TRADINGSESSION")]
-                    trading_session: Option<String>,
+                    pub trading_session: Option<String>,
+                }
+
+                impl MarketData {
+                    
+                    pub fn sec_id(&self) -> String {
+                        self.sec_id.clone().unwrap()
+                    }
+
+                    /**
+                     * @brief Доходность облигаций к погашению.
+                     * Доходность к погашению (Yield to Maturity, YTM):Это расчет, который учитывает все оставшиеся купонные выплаты и
+                     * разницу между рыночной ценой облигации и её номинальной стоимостью, которая будет выплачена в конце срока. 
+                     * Доходность к погашению рассчитывается с использованием метода внутренней нормы доходности (IRR) и предполагает, что 
+                     * все купонные платежи реинвестируются по той же доходности. Формула доходности к погашению требует решения уравнения:
+                     * Цена облигации = ∑ (Купонный платеж / (1 + YTM)^t) + (Номинальная стоимость / (1 + YTM)^n)
+                     * где `t` — номер купонного периода, а `n` — общее количество купонных выплат до погашения.
+                     */
+                    pub fn yield_value(&self) -> f64 {
+                        self.yield_value.unwrap()
+                    }
+
+                    /**
+                     * @brief Рыночная цена %.
+                     */
+                    pub fn market_price_as_percentage(&self) -> f64 {
+                        self.market_price.unwrap()
+                    }
+
+                    /**
+                     * @brief Рыночная цена на сегодня %.
+                     */
+                    pub fn market_price_to_day_as_percentage(&self) -> f64 {
+                        self.market_price_to_day.unwrap()
+                    }
+
+                    /**
+                     * @brief Объем на сегодня.
+                     */
+                    pub fn volume_today(&self) -> f64 {
+                        self.vol_today.unwrap()
+                    }
+
                 }
 
                 #[derive(serde::Deserialize, Debug)]
-                struct MarketDataYields {
+                pub struct MarketDataYields {
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SECID")]
-                    sec_id: Option<String>,
+                    pub sec_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PRICE")]
-                    board_id: Option<String>,
+                    pub board_id: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "PRICE")]
-                    price: Option<f64>,
+                    pub price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDDATE")]
-                    yield_date: Option<String>,
+                    pub yield_date: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ZCYCMOMENT")]
-                    zcyc_moment: Option<String>,
+                    pub zcyc_moment: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDDATETYPE")]
-                    yield_date_type: Option<String>,
+                    pub yield_date_type: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "EFFECTIVEYIELD")]
-                    effective_yield: Option<f64>,
+                    pub effective_yield: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "DURATION")]
-                    duration: Option<f64>,
+                    pub duration: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ZSPREADBP")]
-                    zspreadbp: Option<f64>,
+                    pub zspreadbp: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "GSPREADBP")]
-                    gspreadbp: Option<f64>,
+                    pub gspreadbp: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "WAPRICE")]
-                    wa_price: Option<f64>,
+                    pub wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "EFFECTIVEYIELDWAPRICE")]
-                    effective_yield_wa_price: Option<f64>,
+                    pub effective_yield_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "DURATIONWAPRICE")]
-                    duration_wa_price: Option<f64>,
+                    pub duration_wa_price: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "IR")]
-                    ir: Option<f64>,
+                    pub ir: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "ICPI")]
-                    icpi: Option<f64>,
+                    pub icpi: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "BEI")]
-                    bei: Option<f64>,
+                    pub bei: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "CBR")]
-                    cbr: Option<f64>,
+                    pub cbr: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDTOOFFER")]
-                    yield_to_offer: Option<f64>,
+                    pub yield_to_offer: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "YIELDLASTCOUPON")]
-                    yield_last_coupon: Option<f64>,
+                    pub yield_last_coupon: Option<f64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "TRADEMOMENT")]
-                    trade_moment: Option<String>,
+                    pub trade_moment: Option<String>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SEQNUM")]
-                    seq_num: Option<i64>,
+                    pub seq_num: Option<i64>,
                     #[serde(skip_serializing_if = "Option::is_none", rename = "SYSTIME")]
-                    systime: Option<String>,
+                    pub sys_time: Option<String>,
+                }
+
+                impl MarketDataYields {
+
+                    pub fn sec_id(&self) -> String {
+                        self.sec_id.clone().unwrap()
+                    }
+
+                    /**
+                     * @brief Руночная цена облигаций %. 
+                     */
+                    pub fn price_as_percentage(&self) -> f64 {
+                        self.price.unwrap()
+                    }
+
                 }
 
                 impl BondsInfo {
                     pub fn new(json_data: &String) -> BondsInfo {
+                        /* 
+                            {
+                                "securities": {
+                                    "metadata": {},
+                                    "columns": ["SECID", "BOARDID", "SHORTNAME", "PREVWAPRICE", "YIELDATPREVWAPRICE", "COUPONVALUE", "NEXTCOUPON", "ACCRUEDINT",
+                                        "PREVPRICE", "LOTSIZE", "FACEVALUE", "BOARDNAME", "STATUS", "MATDATE", "DECIMALS", "COUPONPERIOD", "ISSUESIZE", 
+                                        "PREVLEGALCLOSEPRICE", "PREVDATE", "SECNAME", "REMARKS", "MARKETCODE", "INSTRID", "SECTORID", "MINSTEP", "FACEUNIT",
+                                        "BUYBACKPRICE", "BUYBACKDATE", "ISIN", "LATNAME", "REGNUMBER", "CURRENCYID", "ISSUESIZEPLACED", "LISTLEVEL", "SECTYPE", 
+                                        "COUPONPERCENT", "OFFERDATE", "SETTLEDATE", "LOTVALUE", "FACEVALUEONSETTLEDATE"], 
+                                    "data": [...]
+                                },
+
+                                "marketdata": {
+                                    "metadata": {},
+                                    "columns": ["SECID", "BID", "BIDDEPTH", "OFFER", "OFFERDEPTH", "SPREAD", "BIDDEPTHT", "OFFERDEPTHT", "OPEN", "LOW", "HIGH",
+                                         "LAST", "LASTCHANGE", "LASTCHANGEPRCNT", "QTY", "VALUE", "YIELD", "VALUE_USD", "WAPRICE", "LASTCNGTOLASTWAPRICE", 
+                                         "WAPTOPREVWAPRICEPRCNT", "WAPTOPREVWAPRICE", "YIELDATWAPRICE", "YIELDTOPREVYIELD", "CLOSEYIELD", "CLOSEPRICE", 
+                                         "MARKETPRICETODAY", "MARKETPRICE", "LASTTOPREVPRICE", "NUMTRADES", "VOLTODAY", "VALTODAY", "VALTODAY_USD", "BOARDID", 
+                                         "TRADINGSTATUS", "UPDATETIME", "DURATION", "NUMBIDS", "NUMOFFERS", "CHANGE", "TIME", "HIGHBID", "LOWOFFER", 
+                                         "PRICEMINUSPREVWAPRICE", "LASTBID", "LASTOFFER", "LCURRENTPRICE", "LCLOSEPRICE", "MARKETPRICE2", "OPENPERIODPRICE", 
+                                         "SEQNUM", "SYSTIME", "VALTODAY_RUR", "IRICPICLOSE", "BEICLOSE", "CBRCLOSE", "YIELDTOOFFER", "YIELDLASTCOUPON", 
+                                         "TRADINGSESSION"], 
+                                    "data": [...]
+                                },
+                                "marketdata_yields": {
+                                    "metadata": {},
+                                    "columns": ["SECID", "BOARDID", "PRICE", "YIELDDATE", "ZCYCMOMENT", "YIELDDATETYPE", "EFFECTIVEYIELD", "DURATION", 
+                                            "ZSPREADBP", "GSPREADBP", "WAPRICE", "EFFECTIVEYIELDWAPRICE", "DURATIONWAPRICE", "IR", "ICPI", "BEI", "CBR", 
+                                            "YIELDTOOFFER", "YIELDLASTCOUPON", "TRADEMOMENT", "SEQNUM", "SYSTIME"], 
+                                    "data": [...]
+                                }
+                            }
+                        */
                         let parsed: serde_json::Value = serde_json::from_str(json_data).unwrap();
                         let securities = parsed.get("securities").unwrap();
                         let data = securities.get("data").unwrap();
