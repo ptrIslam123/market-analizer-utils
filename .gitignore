@@ -3,3 +3,4 @@ build/
 cmake-*-build/
 target/*
 Cargo.lock
+db-src/

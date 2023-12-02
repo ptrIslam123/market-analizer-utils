@@ -277,7 +277,8 @@ pub mod http {
                      * @brief Название облигаций.
                      */
                     pub fn short_name(&self) -> String {
-                        self.short_name.clone().unwrap()
+                        let short_name = self.short_name.clone().unwrap();
+                        short_name.replace("'", "''")
                     }
 
                     /**
@@ -316,7 +317,10 @@ pub mod http {
                     }
 
                     pub fn frequency_of_payments_per_year(&self) -> i64 {
-                        (365 / self.coupon_period.unwrap())
+                        match self.coupon_period.unwrap() {
+                            0 => 0,
+                            cp => (365 / cp),
+                        }
                     }
 
                     /**

@@ -1,7 +1,7 @@
 mod assets;
 mod MOEX;
 
-use MOEX::http::api;
+use MOEX::{http::api::{self, parser::bond::SecuritiesData}, sqlite::bonds::UpdatingFrequency};
 use reqwest;
 
 async fn make_request_info(url: String) -> Result<String, String> {
@@ -26,31 +26,49 @@ async fn make_request_info(url: String) -> Result<String, String> {
 
 #[tokio::main]
 async fn main() {
-    
-    let tickerName = String::from("SBER");
-    let startDate = String::from("2022-01-01");
-    let endDate = String::from("2022-01-31");
+    // https://docs.rs/sqlite/latest/sqlite/#
+
+    // let tickerName = String::from("SBER");
+    // let startDate = String::from("2022-01-01");
+    // let endDate = String::from("2022-01-31");
 
     let bondsInfo = make_request_info(api::bonds::url_request_builder::list_of_bonds()).await;
 
     match bondsInfo {
         Ok(context) => {
             let data = api::parser::bond::BondsInfo::new(&context);
-            let securities = &data.securities[0];
-            let market_data_yield = &data.market_data_yields[0];
-            let market_data = &data.market_data[0];
-
-            println!("{} {}",
-                market_data_yield.sec_id.as_ref().unwrap(),
-                market_data_yield.price_as_percentage() 
-                //securities.prev_price.unwrap() // 923,11 * 100 / 1000; 1000 - номинал, 923.11 - рыночная
-                
-                //securities.prev_wa_price.unwrap()
-                //securities.buyback_price.unwrap()
-                //securities.yieldat_prev_wa_price.unwrap()
-            );
-
+            let data_securities = &data.securities;
+            //let market_data_yield = &data.market_data_yields[0];
+            //let market_data = &data.market_data[0];
             
+
+            let mut db_proxy = MOEX::sqlite::bonds::DataBaseProxy::new("db-src/MOEX/bonds.sqlite".to_string());
+            db_proxy.open().unwrap();
+            match db_proxy.update(1, UpdatingFrequency::Minute, ||{
+                for securities in data_securities {
+                    match db_proxy.insert_securities_data(&securities) {
+                        Ok(()) => {}
+                        Err(error) => {
+                            println!("{}, {error}", securities.short_name());
+                        }
+                    }
+                }
+            }) {
+                Ok(result) => {
+                    println!("updated={}", result);
+                },
+                Err(error) => {
+                    println!("{}", error);
+                }
+            }
+            
+
+            db_proxy.find_securities_data(|pairs: &[(&str, Option<&str>)]|{
+                for &(name, value) in pairs {
+                    print!("{}={}\t", name, value.unwrap());
+                }
+                println!("\n");
+            }).unwrap();
         }
         Err(error) => {
 
